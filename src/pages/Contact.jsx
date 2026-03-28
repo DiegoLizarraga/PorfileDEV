@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// Importamos Link igual que en tu otro componente
+import { Link } from "react-router";
 
 const Contactme = () => {
   const [form, setForm] = useState({
@@ -17,8 +19,7 @@ const Contactme = () => {
     console.log(form);
   };
 
-
-   const handleSendEmail = async (e) => {
+  const handleSendEmail = async (e) => {
     e.preventDefault();
     const data = await fetch('/api/server', {
       method: 'POST',
@@ -36,7 +37,10 @@ const Contactme = () => {
 
   return (
     <div>
-      Contactme
+      
+      
+      
+      <h2>Contactme</h2> 
       <div>
         <div style={{ display: 'flex', gap: '20px' }}>
           <input
@@ -62,9 +66,16 @@ const Contactme = () => {
             onChange={handleOnchange}
           />
         </div>
-        <button style={{ width: '140px', height: '40px' }}>Contact Me</button>
+        <button 
+          style={{ width: '140px', height: '40px' }} 
+          onClick={handleSendEmail}
+        >
+          Contact Me
+        </button>
       </div>
-      <button onClick={handleSendEmail}>Go Back</button>
+      <p>
+        <Link to={'/'}>Return</Link>
+      </p>
     </div>
   );
 };
