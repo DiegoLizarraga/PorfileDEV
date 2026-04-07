@@ -1,7 +1,13 @@
+.hero-wrapper {
+    padding: 0 2rem;
+}
+
 .main-text {
     font-size: 96px;
     font-weight: bold;
     color: white;
+    margin: 0;
+    line-height: 1;
 }
 
 .secondary-text {
@@ -10,20 +16,122 @@
     -webkit-text-fill-color: transparent;
 }
 
-.btn{
+.hero-handle {
+    font-size: 1rem;
+    color: #606060;
+    letter-spacing: 0.05em;
+    margin: 0.4rem 0 0.8rem 0;
+}
+
+.hero-bio {
+    font-size: 1rem;
+    color: #a0a0a0;
+    max-width: 520px;
+    line-height: 1.7;
+    margin: 0 0 0.5rem 0;
+}
+
+.hero-location {
+    font-size: 0.85rem;
+    color: #606060;
+    margin: 0 0 1.25rem 0;
+}
+
+/* Social buttons */
+.hero-socials {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45em 1em;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s, transform 0.15s;
+}
+.social-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.social-btn.github  { background: #24292e; color: #fff; border: 1px solid #444; }
+.social-btn.linkedin { background: #0077B5; color: #fff; }
+.social-btn.devpost  { background: #003E54; color: #fff; }
+
+/* Skills section */
+.hero-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 2.5rem;
+    max-width: 720px;
+}
+
+.skill-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.skill-category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #505050;
+    min-width: 90px;
+    padding-top: 0.3rem;
+    flex-shrink: 0;
+}
+
+.skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.chip {
+    font-size: 0.75rem;
+    color: #c0c0c0;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.18em 0.6em;
+    border-radius: 4px;
+    transition: border-color 0.2s, color 0.2s;
+}
+.chip:hover { border-color: #00ff9d; color: #fff; }
+
+/* CTA buttons */
+.btn {
     width: 130px;
     height: 56px;
     border: none;
     background-color: #00ff9d;
     font-size: 20px;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
 }
+.btn:hover { background-color: #00e08a; }
 
-.btn-container{
-    padding-top: 5%;
+.btn-container {
+    padding-top: 1rem;
     display: flex;
     gap: 10px;
     justify-content: center;
     align-items: center;
+}
 
+.btn-container a { text-decoration: none; }
+
+@media (max-width: 600px) {
+    .main-text { font-size: 52px; }
+    .hero-wrapper { padding: 0 1rem; }
+    .skill-group { flex-direction: column; gap: 0.35rem; }
 }
