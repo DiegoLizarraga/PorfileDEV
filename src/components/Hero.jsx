@@ -1,67 +1,184 @@
-import './Hero.css';
-import { Link } from "react-router";
+import './Hero.css'
+import { Link } from 'react-router'
 
 const skills = {
-    'Languages': ['C', 'C++', 'Java', 'Python', 'R', 'Markdown'],
-    'Web Dev': ['C#', 'JavaScript', 'HTML', 'CSS', 'TypeScript', 'Dart'],
-    'Frameworks': ['React', 'React Native', 'Django', 'Node.js', 'Flutter'],
-    'Databases': ['SQL', 'MySQL', 'MongoDB', 'Oracle', 'PostgreSQL', 'SQLite'],
-    'Tools': ['Git', 'Docker', 'Linux', 'Colab', 'Jira', 'Slack'],
-    'Data Science': ['NumPy', 'Pandas', 'Matplotlib'],
-};
+  LANGUAGES:   ['TypeScript', 'Python', 'C/C++', 'Java', 'JavaScript', 'SQL', 'C#', 'Dart'],
+  FRAMEWORKS:  ['React', 'Next.js', 'FastAPI', 'Node.js', 'Flutter', 'Django', 'Spring'],
+  'AI & QUANTUM': ['GPT-5 API', 'Ollama', 'IBM Quantum', 'ML Classification', 'Pandas', 'NumPy'],
+  TOOLS:       ['Docker', 'Git', 'Linux', 'PostgreSQL', 'Oracle Cloud', 'AWS', 'Azure', 'CI/CD'],
+}
+
+const logs = [
+  { ts: '14:02:44', text: 'Deployment of ', highlight: 'BLUEMINDS_v1', suffix: ' successful.' },
+  { ts: '09:12:01', text: 'Internship at ', highlight: 'HERE_TECHNOLOGIES', suffix: ' completed.' },
+  { ts: '07:30:00', text: 'Award — ', highlight: 'DIGIEDUHACK_2025', suffix: ' · EU Commission · 1st place.' },
+  { ts: '04:22:18', text: 'Patches applied to ', highlight: 'ENERGQUANTUM', suffix: '. D3CODE 2nd place.' },
+  { ts: '01:00:00', text: 'Scholarship ', highlight: 'LÍDERES_DEL_MAÑANA', suffix: ' activated at ITESM.' },
+]
 
 const Hero = () => {
-    return (
-        <div className="hero-wrapper">
-            <div className="hero-top">
-                <p className="main-text">
-                    Diego <span className="secondary-text">Lizárraga</span>
-                </p>
-                <p className="hero-handle">@DiegoLizarraga · he/him</p>
-                <p className="hero-bio">
-                    Programming in C, C++, Python, and JavaScript. I enjoy programming skills
-                    and cloud development.
-                </p>
-                <p className="hero-location">📍 Guadalajara, Jalisco, México</p>
+  return (
+    <div className="hero-wrapper">
 
-                <div className="hero-socials">
-                    <a href="https://github.com/DiegoLizarraga" target="_blank" rel="noreferrer" className="social-btn github">
-                        <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/diegolizarragasanchez/" target="_blank" rel="noreferrer" className="social-btn linkedin">
-                        <svg height="16" viewBox="0 0 24 24" width="16" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://devpost.com/lizarragasanchezdiego/achievements" target="_blank" rel="noreferrer" className="social-btn devpost">
-                        Devpost
-                    </a>
-                </div>
-            </div>
+      {/* ── HERO ──────────────────────────────────────────── */}
+      <section className="hero-section">
+        <p className="hero-eyebrow">// SENIOR_FULLSTACK_ARCHITECT</p>
 
-            <div className="hero-skills">
-                {Object.entries(skills).map(([category, items]) => (
-                    <div key={category} className="skill-group">
-                        <span className="skill-category">{category}</span>
-                        <div className="skill-chips">
-                            {items.map(s => (
-                                <span key={s} className="chip">{s}</span>
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <div className={'btn-container'}>
-                <Link to="/Projects"><button className="btn">View Projects</button></Link>
-                <Link to="/AboutMe"><button className="btn">About Me</button></Link>
-            </div>
+        <div className="hero-name-block">
+          <div className="hero-name-row">
+            <span className="hero-name-ghost electric" aria-hidden="true">DIEGO</span>
+            <span className="hero-name-text electric">DIEGO</span>
+          </div>
+          <div className="hero-name-row">
+            <span className="hero-name-ghost neon" aria-hidden="true">LIZÁRRAGA</span>
+            <span className="hero-name-text neon">LIZÁRRAGA</span>
+          </div>
         </div>
-    );
-};
 
-export default Hero;
+        <div className="hero-meta">
+          <span className="meta-tag">@DiegoLizarraga</span>
+          <span className="meta-sep" aria-hidden="true" />
+          <span className="meta-tag">Guadalajara, MX</span>
+          <span className="meta-sep" aria-hidden="true" />
+          <span className="meta-tag">ITESM · 2028</span>
+        </div>
+
+        <p className="hero-bio">
+          Computer Technology Engineering student at Tecnológico de Monterrey on a{' '}
+          <strong>100% merit scholarship</strong>. Building at the intersection of{' '}
+          <strong>AI, quantum computing &amp; full-stack engineering</strong>.
+          Software Engineering Intern at <strong>Here Technologies</strong>.
+          Multiple international hackathon champion.
+        </p>
+      </section>
+
+      {/* ── STATUS BAR ────────────────────────────────────── */}
+      <div className="status-bar">
+        <span className="status-chip active">● ACTIVE</span>
+        <span className="status-chip">B.S. ENG · 2028</span>
+        <span className="status-chip">HE / HIM</span>
+        <span className="status-chip">ZAPOPAN · MX</span>
+      </div>
+
+      {/* ── LINKS ─────────────────────────────────────────── */}
+      <div className="links-section">
+        <p className="section-eyebrow">// NETWORK_LINKS</p>
+        <a href="https://github.com/DiegoLizarraga" target="_blank" rel="noreferrer">
+          <div className="link-row github">
+            <span className="link-label">GITHUB</span>
+            <span className="link-arrow">→</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/diegolizarragasanchez/" target="_blank" rel="noreferrer">
+          <div className="link-row linkedin">
+            <span className="link-label">LINKEDIN</span>
+            <span className="link-arrow">→</span>
+          </div>
+        </a>
+        <a href="https://devpost.com/lizarragasanchezdiego/achievements" target="_blank" rel="noreferrer">
+          <div className="link-row devpost">
+            <span className="link-label">DEVPOST</span>
+            <span className="link-arrow">→</span>
+          </div>
+        </a>
+      </div>
+
+      {/* ── CTA ───────────────────────────────────────────── */}
+      <div className="cta-row">
+        <Link to="/Projects">
+          <button className="cta-btn primary">VIEW_PROJECTS</button>
+        </Link>
+        <Link to="/AboutMe">
+          <button className="cta-btn ghost">ABOUT_ME</button>
+        </Link>
+      </div>
+
+      {/* ── SKILLS ────────────────────────────────────────── */}
+      <section className="skills-section">
+        <div className="section-header">
+          <h2 className="section-title" data-text="SKILLS_SET">SKILLS_SET</h2>
+          <span className="section-meta">[ID: 00482]</span>
+        </div>
+        {Object.entries(skills).map(([cat, items]) => (
+          <div className="skill-group" key={cat}>
+            <p className="skill-group-label">/ {cat}</p>
+            <div className="skill-chips">
+              {items.map(s => <span className="chip" key={s}>{s}</span>)}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* ── EXPERIENCE & AWARDS ───────────────────────────── */}
+      <section className="exp-section">
+        <div className="section-header">
+          <h2 className="section-title" data-text="EXPERIENCE">EXPERIENCE</h2>
+        </div>
+
+        <div className="exp-card blue">
+          <div className="exp-header">
+            <span className="exp-title">Software Engineering Intern</span>
+            <span className="exp-date">2025</span>
+          </div>
+          <p className="exp-sub">Here Technologies · Guadalajara, MX</p>
+          <p className="exp-desc">
+            Optimized 500K+ polygon rendering in React. Built scalable REST APIs.
+            Migrated legacy codebase to TypeScript — cutting runtime errors by 35%.
+          </p>
+        </div>
+
+        <div className="exp-card green" style={{ marginTop: '8px' }}>
+          <div className="exp-header">
+            <span className="exp-title">DigiEduHack 2025 · EU Commission</span>
+            <span className="exp-date">NOV 2025</span>
+          </div>
+          <span className="exp-badge green">🥇 1ST PLACE</span>
+          <p className="exp-desc">
+            AI-powered educational platform for autism support. GPT-5 API + ML Classification · 100+ users · 87% accuracy.
+          </p>
+        </div>
+
+        <div className="exp-card purple" style={{ marginTop: '8px' }}>
+          <div className="exp-header">
+            <span className="exp-title">D3CODE 2025 · Quantum AI</span>
+            <span className="exp-date">SEP 2025</span>
+          </div>
+          <span className="exp-badge cyan">🥈 2ND PLACE</span>
+          <p className="exp-desc">
+            Hybrid quantum-classical AI optimizer using IBM Quantum for energy grid failure prediction.
+          </p>
+        </div>
+
+        <div className="exp-card purple" style={{ marginTop: '8px' }}>
+          <div className="exp-header">
+            <span className="exp-title">GuadalaHacks 2025 · GeoFix</span>
+            <span className="exp-date">MAY 2025</span>
+          </div>
+          <span className="exp-badge cyan">🥈 2ND PLACE</span>
+          <p className="exp-desc">
+            Geospatial correction tool using Here APIs + Pandas/GeoPandas + R-tree indexing. 10x performance gain.
+          </p>
+        </div>
+      </section>
+
+      {/* ── SYSTEM LOGS ───────────────────────────────────── */}
+      <section className="logs-section">
+        <div className="section-header">
+          <h2 className="section-title" data-text="SYSTEM_LOGS">SYSTEM_LOGS</h2>
+        </div>
+        <div className="logs-box">
+          <span className="logs-tag">LATEST</span>
+          {logs.map((l, i) => (
+            <p className="log-line" key={i}>
+              <span className="ts">[{l.ts}]</span>{' '}
+              {l.text}<span className="highlight">{l.highlight}</span>{l.suffix}
+            </p>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  )
+}
+
+export default Hero

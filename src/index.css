@@ -1,0 +1,52 @@
+/* shared page-header styles used by About, Projects, Contact */
+.page-header {
+  padding: 36px 20px 28px;
+  border-bottom: 1px solid rgba(143, 245, 255, 0.08);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5a4060;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.back-link:hover { color: #8ff5ff; }
+
+.page-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(28px, 8vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #e0d4e8;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+.page-header h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: -2px;
+  color: #d674ff;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.page-tagline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #8ff5ff;
+  text-transform: uppercase;
+  margin-top: 8px;
+  opacity: 0.7;
+}

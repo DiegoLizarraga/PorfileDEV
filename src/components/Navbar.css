@@ -1,13 +1,106 @@
-.container-navbar{
-    display: flex;
-    justify-content: center;
-    align-content: center;
+/* ── TOP BAR ───────────────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-surface);
+  border-bottom: 1px solid rgba(143, 245, 255, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
 }
 
-.links{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    gap: 20px;
+.topbar-brand {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--primary);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 13px;
+}
+.topbar-icon span {
+  display: block;
+  height: 2px;
+  background: var(--primary);
+}
+.topbar-icon span:nth-child(1) { width: 100%; }
+.topbar-icon span:nth-child(2) { width: 65%; }
+.topbar-icon span:nth-child(3) { width: 40%; }
+
+.topbar-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.topbar-links a {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+.topbar-links a:hover { color: var(--primary); }
+.topbar-links a.active { color: var(--secondary); }
+
+/* ── BOTTOM NAV (mobile) ───────────────────────────────── */
+.bottomnav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg-surface);
+  border-top: 1px solid rgba(143, 245, 255, 0.12);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 0 18px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-label {
+  font-family: var(--font-display);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.nav-item.active .nav-label { color: var(--secondary); }
+
+/* hide bottom nav on desktop, show top links */
+@media (min-width: 768px) {
+  .bottomnav { display: none; }
+  .topbar-links { display: flex; }
+}
+
+@media (max-width: 767px) {
+  .topbar-links { display: none; }
 }
